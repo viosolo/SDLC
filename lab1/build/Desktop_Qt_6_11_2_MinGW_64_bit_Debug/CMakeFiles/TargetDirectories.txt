@@ -1,0 +1,9 @@
+E:/jzrpo/lab1/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/lab1.dir
+E:/jzrpo/lab1/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/edit_cache.dir
+E:/jzrpo/lab1/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/rebuild_cache.dir
+E:/jzrpo/lab1/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/list_install_components.dir
+E:/jzrpo/lab1/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/install.dir
+E:/jzrpo/lab1/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/install/local.dir
+E:/jzrpo/lab1/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/install/strip.dir
+E:/jzrpo/lab1/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/lab1_autogen_timestamp_deps.dir
+E:/jzrpo/lab1/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/lab1_autogen.dir
