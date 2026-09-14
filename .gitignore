@@ -1,0 +1,25 @@
+# Папки сборки
+build/
+build-*/
+debug/
+release/
+bin/
+obj/
+*.pro.user
+*.pro.user.*
+
+# Временные файлы Qt
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+*.o
+*.obj
+
+# Файлы IDE и ОС
+.vs/
+.idea/
+.vscode/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
