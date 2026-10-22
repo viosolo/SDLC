@@ -322,7 +322,7 @@
 
 ### 5.2 Ссылки на артефакты
 
-- Репозиторий: [https://github.com/твой-логин/имя-репозитория](https://github.com/viosolo/SDLC)
+- Репозиторий:(https://github.com/viosolo/SDLC)
 - Структурные диаграммы SysML v2: srs/images/
 - ADR: adr/
 - SDD: sdd/
