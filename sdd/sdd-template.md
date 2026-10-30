@@ -22,15 +22,6 @@
 * [2. Обзор дизайна](#2-design-overview)
   * [2.1 Задачи стейкхолдеров](#21-stakeholder-concerns)
   * [2.2 Выбранные точки зрения](#22-selected-viewpoints)
-    * [2.2.1 Контекст](#221-context)
-    * [2.2.2 Композиция](#222-composition)
-    * [2.2.3 Логическое представление](#223-logical)
-    * [2.2.5 Структура](#225-structure)
-    * [2.2.7 Информация](#227-information)
-    * [2.2.8 Интерфейс](#228-interface)
-    * [2.2.11 Динамика состояний](#2211-state-dynamics)
-    * [2.2.13 Паттерны](#2213-patterns)
-    * [2.2.14 Развёртывание](#2214-deployment)
 * [3. Проектные представления](#3-design-views)
 * [4. Решения](#4-decisions)
 * [5. Приложения](#5-appendixes)
@@ -41,8 +32,6 @@
 | Name | Date | Reason For Changes | Version |
 |------|------|--------------------|---------|
 | Солонович В.С. | 30.10.2026 | Первоначальная версия | 0.1 |
-
----
 
 ## 1. Введение {#1-introduction}
 
@@ -66,8 +55,6 @@
 
 ### 1.5 Обзор документа {#15-document-overview}
 Документ состоит из 5 разделов. Раздел 2 описывает задачи стейкхолдеров и выбранные точки зрения. Раздел 3 содержит конкретные проектные представления (архитектуру). Раздел 4 фиксирует ключевые архитектурные решения (ADR). Раздел 5 включает дополнительные материалы.
-
----
 
 ## 2. Обзор дизайна {#2-design-overview}
 
@@ -116,74 +103,68 @@
 **Адресует**: отображение программных сущностей на физическое окружение выполнения.
 **Применение в проекте**: Описание развертывания Docker-контейнеров на VPS.
 
----
-
 ## 3. Проектные представления {#3-design-views}
 
-**ID:** 001-context
-**Title:** Контекст системы
-**Viewpoint:** Контекст
-**Representation:** Система «Viosolocake» выступает центральным компонентом. Акторы: Покупатель (браузер), Администратор. Внешние системы: SMTP-сервер (отправка чеков), сервис доставки.
+**ID:** 001-context  
+**Title:** Контекст системы  
+**Viewpoint:** Контекст  
+**Representation:** Система «Viosolocake» выступает центральным компонентом. Акторы: Покупатель (браузер), Администратор. Внешние системы: SMTP-сервер (отправка чеков), сервис доставки.  
 **More Information:** Реализует требования `REQ-INT-009`, `REQ-INT-010`.
 
-**ID:** 002-composition
-**Title:** Композиция и архитектура
-**Viewpoint:** Композиция
-**Representation:** Клиент-серверная архитектура. Состоит из 3 уровней: Frontend (React SPA), Backend (Java Spring Boot с REST-контроллерами), Database (PostgreSQL).
+**ID:** 002-composition  
+**Title:** Композиция и архитектура  
+**Viewpoint:** Композиция  
+**Representation:** Клиент-серверная архитектура. Состоит из 3 уровней: Frontend (React SPA), Backend (Java Spring Boot с REST-контроллерами), Database (PostgreSQL).  
 **More Information:** Реализует требования `REQ-FUNC-001`, `REQ-FUNC-004`, `REQ-FUNC-006`.
 
-**ID:** 003-structure
-**Title:** Слоевая структура Backend
-**Viewpoint:** Структура
-**Representation:** Backend разделен на слои: Контроллеры (принимают HTTP-запросы), Сервисы (бизнес-логика), Репозитории (взаимодействие с БД).
+**ID:** 003-structure  
+**Title:** Слоевая структура Backend  
+**Viewpoint:** Структура  
+**Representation:** Backend разделен на слои: Контроллеры (принимают HTTP-запросы), Сервисы (бизнес-логика), Репозитории (взаимодействие с БД).  
 **More Information:** Обеспечивает слабую связность и тестируемость кода (`REQ-MAINT-001`).
 
-**ID:** 004-information
-**Title:** Модель данных
-**Viewpoint:** Информация
-**Representation:** Реляционная база данных. Основные таблицы: `Users` (id, email, password_hash, role), `Products` (id, name, price, category_id), `Orders` (id, user_id, status, total_price).
+**ID:** 004-information  
+**Title:** Модель данных  
+**Viewpoint:** Информация  
+**Representation:** Реляционная база данных. Основные таблицы: `Users` (id, email, password_hash, role), `Products` (id, name, price, category_id), `Orders` (id, user_id, status, total_price).  
 **More Information:** Реализует требования `REQ-FUNC-007`, `REQ-FUNC-008`.
 
-**ID:** 005-interface
-**Title:** REST API Контракты
-**Viewpoint:** Интерфейс
-**Representation:** Обмен JSON-сообщениями по HTTP. 
-* `GET /api/products` — каталог (`REQ-FUNC-001`).
-* `POST /api/cart` — корзина (`REQ-FUNC-004`).
-* `POST /api/orders` — оформление заказа (`REQ-FUNC-006`).
+**ID:** 005-interface  
+**Title:** REST API Контракты  
+**Viewpoint:** Интерфейс  
+**Representation:** Обмен JSON-сообщениями по HTTP.  
+* `GET /api/products` — каталог (`REQ-FUNC-001`).  
+* `POST /api/cart` — корзина (`REQ-FUNC-004`).  
+* `POST /api/orders` — оформление заказа (`REQ-FUNC-006`).  
 **More Information:** Реализует требование `REQ-INT-011`.
 
-**ID:** 006-state-dynamics
-**Title:** Жизненный цикл заказа
-**Viewpoint:** Динамика состояний
-**Representation:** Статусы заказа: `Новый` -> `В обработке` -> `Готов` -> `Выполнен`. Переход между статусами осуществляется администратором.
+**ID:** 006-state-dynamics  
+**Title:** Жизненный цикл заказа  
+**Viewpoint:** Динамика состояний  
+**Representation:** Статусы заказа: `Новый` -> `В обработке` -> `Готов` -> `Выполнен`. Переход между статусами осуществляется администратором.  
 **More Information:** Реализует требование `REQ-FUNC-009`.
 
-**ID:** 007-deployment
-**Title:** Развёртывание системы
-**Viewpoint:** Развёртывание
-**Representation:** Приложение упаковано в Docker-контейнеры. Развертывание на VPS. Веб-сервер Nginx раздает статику React и проксирует запросы к Java-приложению.
+**ID:** 007-deployment  
+**Title:** Развёртывание системы  
+**Viewpoint:** Развёртывание  
+**Representation:** Приложение упаковано в Docker-контейнеры. Развертывание на VPS. Веб-сервер Nginx раздает статику React и проксирует запросы к Java-приложению.  
 **More Information:** Реализует требование `REQ-INST-001`.
-
----
 
 ## 4. Решения {#4-decisions}
 
-**ID:** ADR-001
-**Title:** Выбор Java Spring Boot для Backend
-**Context:** Необходимо создать надежный, безопасный REST API, который будет легко масштабировать и интегрировать с реляционной БД.
-**Options:** Node.js + Express, Python + Django, Java + Spring Boot.
-**Outcome:** Выбран Java + Spring Boot. Обоснование: строгая типизация, встроенные механизмы безопасности (Spring Security) и зрелая экосистема (Spring Data JPA).
+**ID:** ADR-001  
+**Title:** Выбор Java Spring Boot для Backend  
+**Context:** Необходимо создать надежный, безопасный REST API, который будет легко масштабировать и интегрировать с реляционной БД.  
+**Options:** Node.js + Express, Python + Django, Java + Spring Boot.  
+**Outcome:** Выбран Java + Spring Boot. Обоснование: строгая типизация, встроенные механизмы безопасности (Spring Security) и зрелая экосистема (Spring Data JPA).  
 **More Information:** Влияет на архитектурный слой `002-composition`.
 
-**ID:** ADR-002
-**Title:** Выбор PostgreSQL для базы данных
-**Context:** Требуется хранить заказы (транзакции) и данные пользователей без риска потери целостности данных при одновременных запросах.
-**Options:** MySQL, MongoDB, PostgreSQL.
-**Outcome:** Выбран PostgreSQL. Обоснование: полная поддержка ACID-транзакций и бесплатная лицензия.
+**ID:** ADR-002  
+**Title:** Выбор PostgreSQL для базы данных  
+**Context:** Требуется хранить заказы (транзакции) и данные пользователей без риска потери целостности данных при одновременных запросах.  
+**Options:** MySQL, MongoDB, PostgreSQL.  
+**Outcome:** Выбран PostgreSQL. Обоснование: полная поддержка ACID-транзакций и бесплатная лицензия.  
 **More Information:** Влияет на модель данных `004-information`.
-
----
 
 ## 5. Приложения {#5-appendixes}
 
