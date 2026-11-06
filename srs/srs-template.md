@@ -361,4 +361,4 @@
 - Диаграмма вариантов использования: [Use-case.png](../uml/uml/images/Use-case.png)
 - Диаграмма активности: [Action.png](../uml/uml/images/Action.png)
 - Диаграмма состояний: [State.png](../uml/uml/images/State.png)
-- Диаграмма последовательности: [Consequence.png](../uml/uml/images/Sequence.png)
+- Диаграмма последовательности: [Sequence.png](../uml/uml/images/Sequence.png)
